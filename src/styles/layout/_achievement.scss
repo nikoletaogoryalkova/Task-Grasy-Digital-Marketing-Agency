@@ -1,0 +1,71 @@
+.achievement {
+    background-color: $color-background;
+
+    &__container {
+        @include container;
+    }
+
+    &__content {
+        text-align: center;
+
+        .badge {
+            @include badge;
+        }
+
+        h2 {
+            margin: 2rem 0
+        }
+
+        p {
+            margin: 2rem auto;
+        }
+    }
+
+    &__cards-container {
+        @include responsive-grid(220px, 1, 2, 4);
+        transition: transform 0.9s ease-in-out, box-shadow 0.6s ease-in-out;
+
+        .card {
+            @include card;
+            cursor: pointer;
+            &:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            }
+
+            p:first-child {
+                font-weight: 600;
+                font-size: 1.8rem;
+                color: $text-color-dark;
+            }
+
+            &:nth-child(odd) {
+                p:first-child {
+                    grid-column: 1;
+                    text-align: left;
+                }
+
+                h3,
+                p {
+                    grid-column: 2;
+                    text-align: right;
+                }
+            }
+
+            &:nth-child(even) {
+                @include card($color-white);
+
+                p:first-child {
+                    grid-column: 1;
+                    text-align: right;
+                }
+
+                h3,
+                p {
+                    grid-column: 2;
+                    text-align: left;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+.features {
+    background-color: $color-secondary;
+
+    &__container {
+        @include container;
+    }
+
+    &__content {
+        .badge {
+            @include badge(transparent, $text-color-primary);
+        }
+
+        h2 {
+            color: $color-white;
+            max-width: 25ch;
+            margin: 2rem 0 2rem;
+        }
+    }
+
+    &__cards {
+        @include responsive-grid(220px, 1, 2, 3);
+    }
+
+    .card {
+        @include card($color-white);
+        position: relative;
+
+        .card__icon {
+            position: absolute;
+            top: -5%;
+            right: 4%;
+
+            svg {
+                width: 50px;
+                height: auto;
+            }
+        }
+    }
+}

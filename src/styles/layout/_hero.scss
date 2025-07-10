@@ -1,0 +1,107 @@
+.hero {
+    @include container;
+    @include flex-wrap;
+    gap: 4rem;
+
+    &__container {
+        @include responsive-grid(220px, 1, 1, 2);
+    }
+
+    &__content {
+        flex: 2;
+
+        .badge {
+            @include badge($color-neutral-light);
+        }
+
+        h1 {
+            margin: $spacing 0;
+            max-width: 20ch;
+        }
+
+        p {
+            margin: 3rem 0;
+        }
+
+        .hero__buttons>.btn-primary {
+            margin-right: 1rem;
+        }
+    }
+
+    &__image {
+        flex: 2;
+        position: relative;
+        @include responsive-image;
+        max-width: 550px;
+
+        .card {
+            position: absolute;
+            top: 5%;
+            left: -8%;
+            background: $color-white;
+            width: 300px;
+            height: auto;
+            padding: 1.5rem;
+            border-radius: $radius;
+            background-color: $color-background;
+
+            .score-content {
+                @include flex-between;
+            }
+
+            .client-info {
+                @include flex-center;
+                gap: 0.5rem;
+                margin-top: 0.5rem;
+
+                img {
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+
+                span {
+                    font-weight: 600;
+                    font-size: 0.9rem;
+                }
+            }
+        }
+
+        img {
+            @include responsive-image;
+        }
+
+        .btn-hero-card {
+            position: absolute;
+            right: 4%;
+            bottom: 4%;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        gap: 0;
+    }
+
+    .hero__buttons {
+        text-align: center;
+    }
+
+    .hero__image .card {
+        position: static;
+        margin-top: 2rem;
+        width: 100%;
+    }
+
+    .hero__image img {
+        width: 100%;
+        height: auto;
+    }
+
+    .btn-hero-card {
+        position: static;
+        margin-top: 1rem;
+    }
+}

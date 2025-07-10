@@ -1,0 +1,35 @@
+// ============================================
+// BUTTONS
+// ============================================
+
+.btn {
+    display: inline-block;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-weight: 400;
+    border-radius: $radius;
+    cursor: pointer;
+
+    &-primary {
+        background: $color-primary;
+        color: $text-color-dark;
+        @include button-hover($color-primary);
+    }
+
+    &-secondary {
+        background: $color-secondary;
+        color: $text-color-primary;
+        @include button-hover($color-secondary);
+    }
+
+    &-contact {
+        background-color: $color-white;
+        @include button-hover($color-white);
+    }
+
+    &-hero-card {
+        background: $color-primary;
+        color: $text-color-dark;
+        @include button-hover($color-primary);
+    }
+}

@@ -1,0 +1,36 @@
+.partners {
+    background-color: $color-background;
+
+    &__container {
+        @include container;
+    }
+
+    &__grid {
+        @include grid-column;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+            width: 100%;
+            max-width: 100px;
+            height: auto;
+            display: block;
+        }
+    }
+
+    &__logo {
+        max-width: 100px;
+        height: auto;
+        filter: grayscale(0%);
+        transition: filter 0.3s;
+
+        &:hover,
+        &:focus {
+            filter: grayscale(0%);
+        }
+    }
+}

@@ -1,0 +1,33 @@
+
+
+/* Define a scroll-linked animation */
+@scroll-timeline scrollProgress {
+    source: auto;
+    orientation: block;
+    scroll-offsets: start 0, end 100%;
+  }
+  
+  /* Style the progress bar */
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: dodgerblue;
+    width: 100%; /* This width is animated */
+    transform-origin: left;
+    transform: scaleX(0);
+    animation: growProgress linear;
+    animation-timeline: scrollProgress;
+    animation-fill-mode: both;
+  }
+  
+  @keyframes growProgress {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+  

@@ -1,0 +1,44 @@
+.top {
+    background-color: $color-secondary;
+    color: $color-white;
+    font-size: 0.875rem;
+    padding: 0.5rem;
+
+    &__wrapper {
+        @include container;
+        @include flex-between;
+        padding: 0 2rem;
+    }
+
+    &__left {
+        @include flex-wrap;
+        gap: 0.5rem;
+    }
+
+    &__right {
+        a {
+            @include social-icon;
+            width: 20px;
+            height: 20px;
+            filter: brightness(0) invert(1);
+            transition: opacity 0.3s ease;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .top__wrapper {
+            @include flex-column;
+            gap: 0.5rem;
+            padding: 0 2rem;
+        }
+
+        .top__left,
+        .top__right {
+            text-align: center;
+        }
+    }
+}

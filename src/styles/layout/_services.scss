@@ -1,0 +1,134 @@
+// Fade and slide in animation for expanding content
+@keyframes fadeSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.services {
+    @include container;
+
+    &__content {
+        .badge {
+            @include badge($color-neutral-light);
+        }
+    }
+
+    &__wrapper {
+        @include responsive-grid(220px, 1, 1, 2);
+    }
+
+    &__content__info {
+        @include responsive-grid(220px, 1, 1, 2);
+    }
+
+    &__cards__container {
+        position: relative;
+
+        img {
+            @include responsive-image;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+    }
+
+    .card__stat {
+        position: absolute;
+        bottom: 5%;
+        right: 8%;
+        z-index: 2;
+        display: flex;
+        padding: 1rem;
+        text-align: center;
+
+        ul {
+            @include flex-center;
+            text-align: center;
+        }
+    }
+
+    .card {
+        @include card-stats;
+
+        .stat-number {
+            margin-bottom: 0
+        }
+    }
+
+    &__details {
+        @include grid-column(2rem, 1, 1, 2);
+        align-items: start;
+        justify-items: start;
+
+        &__left {
+            position: relative;
+
+            img {
+                @include responsive-image;
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+
+            .play-btn-img {
+                background: transparent;
+                border: none;
+                position: absolute;
+                transform: translate(-50%, -50%);
+                top: 50%;
+                left: 50%;
+                cursor: pointer;
+            }
+        }
+
+        &__right {
+            details.expandable {
+                background-color: $color-primary;
+                border-radius: $radius;
+                margin-bottom: 1rem;
+                cursor: pointer;
+                border-left: 2px solid $color-background;
+                border-right: 2px solid $color-background;
+                border-bottom: 2px solid $color-background;
+                transition: border-color 0.3s ease;
+
+                p {
+                    margin-top: 0.5rem;
+                    color: $text-color-dark;
+                    background-color: $color-background;
+                }
+
+                summary {
+                    padding: 1rem;
+                }
+            }
+
+            details.expandable[open] {
+                border-left-color: $color-background;
+                border-right-color: $color-background;
+                border-bottom-color: $color-background;
+
+                p {
+                    animation: fadeSlideIn 0.6s ease-in-out;
+                    padding: 1rem;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .services {
+        &__content__info {
+            text-align: center;
+        }
+    }
+}

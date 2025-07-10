@@ -1,0 +1,42 @@
+.our__team {
+    background-color: $color-background;
+
+    &__container {
+        @include container;
+    }
+
+    .badge {
+        @include badge;
+    }
+
+    &__content {
+        @include flex-between;
+        padding: $spacing;
+    }
+
+    &__images {
+        @include responsive-grid(220px, 1, 2, 4);
+        text-align: center;
+        padding: $spacing;
+        gap: 1rem;
+    }
+
+    .team__member {
+        background-color: $color-white;
+        padding: 1rem;
+        border-radius: $radius;
+        text-align: center;
+
+        img {
+            @include responsive-image;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .our__team {
+        &__content {
+            @include flex-column;
+        }
+    }
+}

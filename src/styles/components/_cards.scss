@@ -1,0 +1,26 @@
+// ============================================
+// CARDS
+// ============================================
+
+@mixin card-stats($bg: $color-primary, $text: $text-color-dark) {
+    padding: 0.3rem 0.7rem;
+    background-color: $bg;
+
+    p {
+        color: $text;
+        &:first-child{
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+    }
+
+    &:first-child {
+        border-start-start-radius: $radius;
+        border-end-start-radius: $radius;
+    }
+
+    &:last-child {
+        border-start-end-radius: $radius;
+        border-end-end-radius: $radius;
+    }
+}
